@@ -3,9 +3,12 @@
     display: flex;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 125px;
-    width: 125px;
+    height: 100px;
+    width: 100px;
     cursor: pointer;
+    user-select: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 
     &.connect {
       background-image: url('/assets/sprites/on.png');
