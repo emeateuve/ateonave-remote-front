@@ -1,1 +1,6 @@
-<p>power-button works!</p>
+<button
+  (click)="toggleAteonave(isConnected)"
+  class="button"
+  [ngClass]="mode"
+  [disabled]="mode === 'disabled'"
+></button>

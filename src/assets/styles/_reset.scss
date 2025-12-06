@@ -52,9 +52,3 @@ select {
     -webkit-text-fill-color: var(--text-color);
   }
 }
-
-button,
-a {
-  cursor: pointer;
-  transition: var(--transition);
-}

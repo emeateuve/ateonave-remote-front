@@ -1,10 +1,103 @@
 :host {
   height: 100%;
   width: 100%;
+
   .home {
-    background: var(--background-color);
+    background-image: url('/assets/sprites/background.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     height: inherit;
     padding: 1rem;
     font-size: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+
+    .party {
+      font-size: 6rem;
+      color: var(--black);
+      display: inline-flex;
+      align-items: center;
+      animation: faceColors 0.4s step-start 0s 5;
+
+      .face {
+        display: inline-block;
+        animation: faceColors 0.4s step-start 0s 5;
+      }
+      .face::before {
+        content: 'O';
+        animation: faceColors 0.4s step-start 0s 5;
+      }
+    }
+
+    .error {
+      font-size: 6rem;
+      display: inline-flex;
+      align-items: center;
+      color: var(--black);
+      animation: errorShake 0.3s step-start 0s 7;
+    }
+    .raised {
+      display: inline-block;
+      position: relative;
+      top: -0.25em;
+      font-size: 0.8em;
+
+      animation: errorShakeColor 0.3s step-start 0s 7;
+    }
+
+    @keyframes faceColors {
+      0% {
+        color: var(--party-yellow);
+        content: 'O';
+      }
+      33% {
+        color: var(--party-blue);
+        content: 'o';
+      }
+      66% {
+        color: var(--party-turqoise);
+        content: 'o';
+      }
+      100% {
+        color: var(--party-yellow);
+        content: 'O';
+      }
+    }
+
+    @keyframes errorShake {
+      0% {
+        color: var(--error-blue);
+        transform: translateX(10px);
+      }
+      33% {
+        color: var(--error-orange);
+        transform: translateX(-10px);
+      }
+      66% {
+        color: var(--error-pink);
+        transform: translateX(10px);
+      }
+      100% {
+        color: var(--error-blue);
+        transform: translateX(-10px);
+      }
+    }
+
+    @keyframes errorShakeColor {
+      0% {
+        color: var(--error-blue);
+      }
+      33% {
+        color: var(--error-orange);
+      }
+      66% {
+        color: var(--error-pink);
+      }
+      100% {
+        color: var(--error-blue);
+      }
+    }
   }
 }

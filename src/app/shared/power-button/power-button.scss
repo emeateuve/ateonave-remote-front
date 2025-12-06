@@ -1,0 +1,29 @@
+:host {
+  button {
+    display: flex;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 125px;
+    width: 125px;
+    cursor: pointer;
+
+    &.connect {
+      background-image: url('/assets/sprites/on.png');
+      &:active {
+        background-image: url('/assets/sprites/on_pressed.png');
+      }
+    }
+
+    &.disconnect {
+      background-image: url('/assets/sprites/off.png');
+      &:active {
+        background-image: url('/assets/sprites/off_pressed.png');
+      }
+    }
+
+    &.disabled,
+    &.disabled:active {
+      background-image: url('/assets/sprites/disabled.png');
+    }
+  }
+}

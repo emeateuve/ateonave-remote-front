@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Network } from '@services/network';
+import { StatusService } from '@services/status';
 import { getNetworkStatusImage, NetworkStatus } from 'app/types/NetworkStatus';
 
 @Component({
@@ -9,7 +10,11 @@ import { getNetworkStatusImage, NetworkStatus } from 'app/types/NetworkStatus';
   styleUrl: './signal.scss',
 })
 export class Signal implements OnInit {
-  constructor(private networkService: Network, private cd: ChangeDetectorRef) {}
+  constructor(
+    private networkService: Network,
+    private cd: ChangeDetectorRef,
+    private statusService: StatusService
+  ) {}
 
   status: NetworkStatus = '';
   imgUrl: string = getNetworkStatusImage(this.status);
@@ -17,6 +22,10 @@ export class Signal implements OnInit {
   private animationStates: NetworkStatus[] = ['', 'low', 'med', 'full'];
 
   ngOnInit(): void {
+    this.statusService.status$.subscribe((status) => {
+      if (status === 'loading') this.togglePartyEffect();
+    });
+
     this.networkService.bars$.subscribe((networkStatus: NetworkStatus) => {
       if (!this.animating) {
         this.status = networkStatus;

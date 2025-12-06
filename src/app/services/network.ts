@@ -25,9 +25,9 @@ export class Network {
   }
 
   private mapRttToBars(rtt: number): NetworkStatus {
-    if (rtt < 100) return 'full'; // excelente
-    if (rtt < 300) return 'med'; // buena
-    if (rtt < 800) return 'low'; // justa
-    return ''; // mala
+    if (rtt < 100) return 'full';
+    if (rtt < 300) return 'med';
+    if (rtt < 800) return 'low';
+    return '';
   }
 }

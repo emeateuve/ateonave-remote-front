@@ -9,7 +9,6 @@ export class LoadingInterceptor implements HttpInterceptor {
   private loading = inject(LoadingService);
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // do not show for static asset requests (optional)
     const isApi = req.url.startsWith('http') || req.url.startsWith('/');
     if (isApi) this.loading.start();
     return next.handle(req).pipe(

@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
+import { AteonaveStatus } from 'app/types/AteonaveStatus';
 import { BehaviorSubject, Observable } from 'rxjs';
-
-export type ConnectionStatus = 'disconnected' | 'connected' | 'offline' | 'loading';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StatusService {
-  private statusSubject = new BehaviorSubject<ConnectionStatus>('connected');
-  status$: Observable<ConnectionStatus> = this.statusSubject.asObservable();
+  private statusSubject = new BehaviorSubject<AteonaveStatus>('connected');
+  status$: Observable<AteonaveStatus> = this.statusSubject.asObservable();
 
   constructor() {}
 
-  setStatus(status: ConnectionStatus): void {
+  setStatus(status: AteonaveStatus): void {
     this.statusSubject.next(status);
   }
 
-  getStatus(): ConnectionStatus {
+  getStatus(): AteonaveStatus {
     return this.statusSubject.getValue();
   }
 }
