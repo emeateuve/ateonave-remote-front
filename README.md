@@ -1,59 +1,116 @@
-# AteonaveRemoteFront
+# 🎮 Ateonave Remote
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.5.
+<h1 align="center">
+<em><strong>"Alexa, ya está er tío en casa"</strong></em>
+</h1>
+<p align="center"><img src="./docs/img/er_tio.gif" alt="test"></p>
+<p align="center">No vuelvo a agacharme para encender el ordenador.</p>
 
-## Development server
+## 🚀 ¿Qué es esto?
 
-To start a local development server, run:
+Esta app se encarga de encender y apagar mi pc (La ateonave) a través de un servicio que se comunica con mi ordenador personal.
 
-```bash
-ng serve
-```
+- 🔌 **Encendido** → La app hace una llamada al endpoint (**wake**) → El servidor envía un **Wake-on-LAN** (magic packet).
+- 📴 **Apagado** → La app hace una llamada al endpoint (**shutdown**) → El servidor se conecta a mi pc a través de un **túnel SSH reverso** → Ejecuta el comando de apagado.
+- 🎮 Todo con estética del **Wario Ware** de la GBA porque está increíble.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Proyecto pequeño, práctico, visual y con bastante humor.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+# 🛠️ Instalación del proyecto
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### 1️⃣ Clonar el repo
 
 ```bash
-ng build
+git clone https://github.com/emeateuve/ateonave-remote-front.git
+cd ateonave-remote-front
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### 2️⃣ Instalar dependencias
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### 3️⃣ Configurar variables de entorno
 
 ```bash
-ng e2e
+cp env.example.ts src/environments/environment.ts
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+# 🌐 Build
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+ng build --configuration production
+```
+
+Salida en:
+
+```
+dist/ateonave-remote-front/browser
+```
+
+---
+
+# 📱 Build del APK en Android
+
+Sí, sólo en Android, si tienes iOS te buscas la vida.
+
+### 1️⃣ Copiar los archivos web a la plataforma Android
+
+```bash
+npx cap copy android
+```
+
+### 2️⃣ Ir a la carpeta de Android
+
+```bash
+cd android
+```
+
+### 3️⃣ Generar la APK debug
+
+```bash
+./gradlew.bat assembleDebug
+```
+
+La APK aparecerá en:
+
+```
+android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+La instalas en tu móvil y listo.
+
+---
+
+# 📁 Estructura del proyecto
+
+```
+/public
+    /assets
+        /sprites
+            ...Aquí me he currado con el Piskel los assets
+/src
+    /app
+        /core
+            /interceptors
+        /pages
+        /services
+        /shared
+        /types
+    /environments
+        env.ts
+env.example.ts
+```
+
+---
+
+# 🎉 Notas finales
+
+- Esto no es una app para publicar en ninguna store. Es un proyecto que se ha hecho en 2 días.
+- Está hecha solo para controlar mi propio ordenador.
+- **_Booyakah Booyakah, 619!_**
