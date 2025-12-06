@@ -1,0 +1,15 @@
+<main class="wrapper">
+  <div class="wrapper-content">
+    <span class="wrapper-brand">Ateonave</span>
+    <app-status [status]="currentStatus"></app-status>
+    <div class="wrapper-screen">
+      <div class="wrapper-screen-border">
+        <app-signal />
+      </div>
+      <ng-content />
+      <div class="wrapper-screen-border">
+        <app-battery />
+      </div>
+    </div>
+  </div>
+</main>

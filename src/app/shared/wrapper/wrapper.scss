@@ -1,0 +1,64 @@
+:host {
+  background: var(--blue);
+
+  .wrapper {
+    height: 100vh;
+    width: 100%;
+    background-image: url('./../../../assets/img/wrapper.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    &-content {
+      display: flex;
+      width: 75%;
+      height: 34rem;
+      position: absolute;
+      top: 12.3rem;
+      left: 12%;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+    }
+
+    &-brand {
+      text-transform: uppercase;
+      font-style: italic;
+      color: var(--brand-color);
+      position: absolute;
+      font-size: 35px;
+      right: 20px;
+      top: -45px;
+    }
+
+    &-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      padding: 1rem;
+      border-radius: 10px;
+
+      &-border {
+        min-height: 50px;
+        width: 100%;
+        background: conic-gradient(
+            from 0deg,
+            var(--red) 0 25%,
+            var(--orange) 0 50%,
+            var(--red) 0 75%,
+            var(--orange) 0 100%
+          )
+          0 0 / 20px 20px;
+
+        &:first-child {
+          border-radius: 3px 3px 0 0;
+        }
+        &:last-child {
+          border-radius: 0 0 3px 3px;
+        }
+      }
+    }
+  }
+}

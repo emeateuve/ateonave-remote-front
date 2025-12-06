@@ -1,0 +1,103 @@
+/* === OVERLAY BASE === */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--brand-black-rgba);
+  z-index: 3000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* === LOADER CONTAINER === */
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--brand-black);
+}
+
+/* === SVG LOADER VARIANTS === */
+
+/* --- Common SVG style --- */
+.svg-loader svg {
+  width: 64px;
+  height: 64px;
+}
+
+/* --- Variant 1: Rotation --- */
+.rotate svg {
+  fill: var(--brand-color);
+  animation: spin 1s linear infinite;
+}
+
+/* --- Variant 2: Draw (stroke animation) --- */
+.draw svg {
+  fill: none;
+  stroke: var(--brand-color);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 2.2s ease-in-out infinite;
+}
+
+/* --- Variant 3: Pulse with glow --- */
+.pulse svg {
+  fill: var(--brand-color);
+  filter: drop-shadow(0 0 4px var(--border-color));
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* === LABEL === */
+.label {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* === LEGACY SPINNER (if needed elsewhere) === */
+.spinner {
+  display: none; // Ocultamos el antiguo spinner
+}
+
+/* === KEYFRAMES === */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: drop-shadow(0 0 2px var(--border-color));
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.6;
+    filter: drop-shadow(0 0 10px var(--border-color));
+  }
+}

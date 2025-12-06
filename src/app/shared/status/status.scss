@@ -1,0 +1,11 @@
+:host {
+  --height: 60px;
+
+  position: absolute;
+  top: calc(var(--height) / -2 + 1px);
+  z-index: 10;
+
+  img {
+    height: var(--height);
+  }
+}

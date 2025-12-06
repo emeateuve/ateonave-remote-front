@@ -1,0 +1,10 @@
+:host {
+  height: 100%;
+  width: 100%;
+  .home {
+    background: var(--background-color);
+    height: inherit;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+}

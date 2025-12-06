@@ -1,0 +1,14 @@
+:host {
+  .battery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    height: 100%;
+
+    img {
+      height: 30px;
+      width: auto;
+      justify-self: center;
+    }
+  }
+}

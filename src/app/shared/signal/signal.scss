@@ -1,0 +1,14 @@
+:host {
+  position: relative;
+  left: 1rem;
+  .signal {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    &-antenna,
+    &-status {
+      height: 30px;
+    }
+  }
+}
