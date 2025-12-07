@@ -19,11 +19,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(HttpClientModule),
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: LoadingInterceptor,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true,
     },

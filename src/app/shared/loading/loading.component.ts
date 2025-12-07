@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoadingService } from '@services/loading.service';
+import { LoadingService } from '@services/loading';
 
 @Component({
   selector: 'app-loading',

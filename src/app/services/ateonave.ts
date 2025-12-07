@@ -12,6 +12,6 @@ export class Ateonave {
   constructor(private http: HttpClient) {}
 
   post<T>(endpoint: string, body: any = null): Observable<T> {
-    return this.http.post<T>(`${this.apiUrl}/api/${endpoint}`, body);
+    return this.http.post<T>(`${this.apiUrl}/${endpoint}`, body);
   }
 }
