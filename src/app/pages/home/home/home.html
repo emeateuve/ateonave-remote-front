@@ -18,7 +18,7 @@
   <app-power-button
     (event)="callApi(false)"
     [isConnected]="true"
-    [disabled]="status === 'loading' || status === 'disconnected'"
+    [disabled]="status === 'loading' || status === 'disconnected' || status === 'offline'"
   />
   }
 </div>

@@ -47,11 +47,11 @@ export class Home {
     this.statusService.setStatus('loading');
     setTimeout(() => {
       this.ateoService.post(connect ? 'wake' : 'shutdown').subscribe({
-        next: (res: any) => {
+        next: () => {
           this.statusService.setStatus(connect ? 'connected' : 'disconnected');
           this.partyTrigger$.next();
         },
-        error: (err: any) => {
+        error: () => {
           this.statusService.setStatus('offline');
           this.errorTrigger$.next();
         },

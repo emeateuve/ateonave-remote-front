@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class StatusService {
-  private statusSubject = new BehaviorSubject<AteonaveStatus>('connected');
+  private statusSubject = new BehaviorSubject<AteonaveStatus>('loading');
   status$: Observable<AteonaveStatus> = this.statusSubject.asObservable();
 
   constructor() {}
