@@ -24,7 +24,6 @@ export class Home {
 
   private partyTrigger$ = new Subject<void>();
   private errorTrigger$ = new Subject<void>();
-
   party$: Observable<boolean> = this.partyTrigger$.pipe(
     switchMap(() =>
       timer(0, 2000).pipe(
@@ -48,11 +47,11 @@ export class Home {
     this.statusService.setStatus('loading');
     setTimeout(() => {
       this.ateoService.post(connect ? 'wake' : 'shutdown').subscribe({
-        next: () => {
+        next: (res: any) => {
           this.statusService.setStatus(connect ? 'connected' : 'disconnected');
           this.partyTrigger$.next();
         },
-        error: () => {
+        error: (err: any) => {
           this.statusService.setStatus('offline');
           this.errorTrigger$.next();
         },

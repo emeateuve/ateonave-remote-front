@@ -18,7 +18,7 @@ export class Network {
   private async check() {
     const start = performance.now();
     try {
-      await firstValueFrom(this.http.get(environment.apiUrl, { responseType: 'text' }));
+      await firstValueFrom(this.http.get(`${environment.apiUrl}/live`, { responseType: 'text' }));
       const rtt = performance.now() - start;
       this.bars.next(this.mapRttToBars(rtt));
     } catch {

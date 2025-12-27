@@ -1,6 +1,9 @@
 :host {
   height: 100%;
   width: 100%;
+  .debug {
+    font-size: 16px;
+  }
 
   .home {
     background-image: url('/assets/sprites/background.png');
@@ -18,7 +21,7 @@
     }
 
     .party {
-      font-size: 6rem;
+      font-size: 5rem;
       color: var(--black);
       display: inline-flex;
       align-items: center;
